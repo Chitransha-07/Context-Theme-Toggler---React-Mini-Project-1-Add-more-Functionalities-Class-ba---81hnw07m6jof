@@ -1,12 +1,12 @@
-import React from 'react';
-import { useTheme } from './ThemeProvider';
+import React, { useContext } from 'react';
+import { ThemeContext } from './ThemeProvider';
 
 const ThemeToggleButton = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { toggleGlobalTheme, globalTheme } = useContext(ThemeContext);
 
   return (
-    <button onClick={toggleTheme} id="global-theme-toggler">
-      {theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
+    <button id="global-theme-toggler" onClick={toggleGlobalTheme}>
+      {globalTheme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
     </button>
   );
 };
